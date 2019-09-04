@@ -18,6 +18,11 @@
             color: yellow;
             background-color: purple;
         }
+
+        .divider {
+            height: 2px;
+            background-color: gray;
+        }
     </style>
     <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
 </head>
@@ -33,12 +38,18 @@
         </tr>
         </thead>
         <tbody id="contacts">
-        <tr v-for="(contact,index) in contacts" v-if="contact.address.indexOf('서울')> -1">
-            <td>{{index+1}}</td>
-            <td>{{contact.name}}</td>
-            <td>{{contact.tel}}</td>
-            <td>{{contact.address}}</td>
-        </tr>
+        <template v-for="(contact, index) in contacts">
+            <tr :key="contact.no">
+                <td>{{index+1}}</td>
+                <td>{{contact.name}}</td>
+                <td>{{contact.tel}}</td>
+                <td>{{contact.address}}</td>
+            </tr>
+            <tr class="divider" v-if="index % 5===4">
+                <td colspan="4"></td>
+            </tr>
+        </template>
+
         </tbody>
     </table>
 </div>
