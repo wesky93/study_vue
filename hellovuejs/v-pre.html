@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02-11</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<div id="example">
+    <span v-pre>{{message}}</span>
+</div>
+
+<script type="text/javascript">
+    var vm = new Vue({
+            el: '#example',
+            data: {
+                message: "Hellow World"
+            }
+        }
+    )
+</script>
+</body>
+
+</html>
