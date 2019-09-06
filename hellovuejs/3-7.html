@@ -20,6 +20,7 @@
             color: yellow;
             background-color: purple;
         }
+
     </style>
 </head>
 <body>
@@ -81,7 +82,13 @@
                         this.isProcessing = false;
                     })
             }, 300)
-        }
+        },
+        created: () => console.log('created!'),
+        updated: function () {
+            console.log('updated!');
+            console.log(this.isProcessing);
+
+        },
     })
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.4/fetch.js"></script>
