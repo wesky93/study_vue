@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+    <style>
+        .boxcolor {
+            background-color: orange;
+        }
+
+        .center {
+            width: 200px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <center-box :class="boxstyle"></center-box>
+</div>
+<script type="text/javascript">
+    Vue.component('center-box', {
+        template: '<div class="center">중앙에 위치</div>'
+    })
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            boxstyle: {
+                boxcolor: true
+            }
+        },
+    })
+</script>
+</body>
+</html>

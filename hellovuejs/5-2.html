@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <button id="a" :style="style1" @mouseover.stop="overEvent" @mouseout.stop="outEvent">테스트</button>
+    <button id="btn1" :style="[myColor, myLayout]">버튼1</button>
+</div>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            myColor: {
+                backgroundColor: 'aqua',
+                color: 'yellow',
+            },
+            myLayout: {
+                width: '350px',
+                height: '80px',
+                textAlign: 'center',
+            },
+            style1: {
+                backgroundColor: 'aqua',
+                border: 'solid 1px gray',
+                with: '100px',
+                textAlign: 'center',
+            }
+        },
+        methods: {
+            overEvent(e) {
+                this.style1.backgroundColor = 'purple';
+                this.style1.color = 'yellow';
+            },
+            outEvent(e) {
+                this.style1.backgroundColor = 'aqua';
+                this.style.color = 'black';
+            }
+        }
+    })
+</script>
+</body>
+</html>
