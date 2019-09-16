@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+    <style></style>
+</head>
+<!--child 컴포넌트 시작-->
+<style>
+    .buttonstyle {
+        width: 120px;
+        height: 30px;
+        text-align: center;
+    }
+</style>
+<template id="childTemplate">
+    <div>
+        <button class="buttonstyle" @click="clickEvent" :data-lang="buttonInfo.value">{{buttonInfo.text}}</button>
+
+    </div>
+</template>
+<script type="text/javascript">
+    Vue.component('child-component', {
+            template: '#childTemplate',
+            props: ['buttonInfo'],
+            methods: {
+                clickEvent(e) {
+                    this.$emit('timeclick', e.target.innerText, e.target.dataset.lang);
+                }
+            }
+        }
+    )
+</script>
+<!--child 컴포넌트 끝-->
+<!--parent 컴포넌트 시작-->
+<template id="parent-template">
+    <div>
+        <child-component v-for="s in buttons" :button-info="s" @timeclick="timeclickEvent"></child-component>
+        <hr>
+        <div>{{msg}}</div>
+    </div>
+</template>
+<script type="text/javascript">
+    Vue.component('parent-component', {
+        template: '#parent-template',
+        props: ['buttons'],
+        data() {
+            return {msg: ""};
+        },
+        methods: {
+            timeclickEvent(k, v) {
+                this.msg = k + ', ' + v;
+            },
+        },
+    })
+</script>
+<!--parent 컴포넌트 끝-->
+<body>
+<div id="app">
+    <parent-component :buttons="buttons"></parent-component>
+</div>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            buttons: [
+                {text: 'Hello', value: '영어'},
+                {text: '씬짜오', value: '베트남어'},
+                {text: '니하오', value: '중국어'},
+            ],
+        },
+    })
+</script>
+</body>
+</html>
