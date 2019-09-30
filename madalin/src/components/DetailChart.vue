@@ -54,12 +54,6 @@
                 h: "",
             }
         },
-        methods:{
-            update(value){
-                this.$emit('input',value)
-            }
-        }
-
     }
 </script>
 

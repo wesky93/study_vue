@@ -1,4 +1,6 @@
 <template>
+  <div>
+    <h1>{{name}}</h1>
   <div id="chart">
     <template v-for="(val,index) in link">
         <table id="main" v-if="index === 4">
@@ -18,7 +20,7 @@
               <input-box v-model="link[3]"></input-box>
             </td>
             <td>
-              <input-box placeholder="제목을 입력 하세요" v-model="title"></input-box>
+              <input-box placholder="제목을 입력 하세요" v-model="title"></input-box>
             </td>
             <td>
               <input-box v-model="link[5]"></input-box>
@@ -40,6 +42,7 @@
     </template>
 
   </div>
+  </div>
 </template>
 
 <script>
@@ -51,6 +54,12 @@
             return {
                 title:"",
                 link:["a", "b", "c","d","","e","f","g","h"],
+            }
+        },
+        computed:{
+            name(){
+                if (this.title)  return this.title;
+                else return  "만다라트 차트";
             }
         }
     }
