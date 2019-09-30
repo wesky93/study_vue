@@ -92,3 +92,13 @@ hellovuejs/.idea/
 .idea/
 
 webpack_sample/public/dist/
+
+contactserver/temp_photom/
+
+contactserver/temp_photow/
+
+.DS_Store
+
+contactserver/contacts.db
+
+contactsapp/build/
